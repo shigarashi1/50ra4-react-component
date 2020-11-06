@@ -11,7 +11,7 @@
     "build-module": "tsc -p ./tsconfig.build.json",
     "build": "npm run clean && npm run build-module",
     "storybook": "start-storybook -p 6006 -s public --no-dll",
-    "build-storybook": "build-storybook -s public -o docs --no-dll"
+    "build-storybook": "rimraf ./docs && build-storybook -s public -o docs --no-dll"
   },
   "browserslist": {
     "production": [
