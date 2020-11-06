@@ -3,8 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "npm run storybook",
     "test": "react-scripts test",
     "test-ci": "cross-env CI=true react-scripts test",
+    "clean": "rimraf ./dist",
+    "build-check": "tsc --noEmit",
+    "build-module": "tsc -p ./tsconfig.build.json",
+    "build": "npm run clean && npm run build-module",
     "storybook": "start-storybook -p 6006 -s public --no-dll",
     "build-storybook": "build-storybook -s public -o docs --no-dll"
   },
@@ -58,6 +63,7 @@
     "prettier": "2.1.2",
     "react-is": "17.0.1",
     "react-scripts": "4.0.0",
+    "rimraf": "3.0.2",
     "stylelint": "13.7.2",
     "ts-jest": "26.4.3",
     "ts-node": "9.0.0",
