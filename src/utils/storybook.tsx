@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ComponentProps } from 'react';
-import { Meta, Story } from '../types';
+import { Story, Meta } from '@storybook/react/types-6-0';
 
 type StoryMetaParameter = Omit<Meta, 'component'>;
 
