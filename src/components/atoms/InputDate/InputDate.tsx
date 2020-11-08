@@ -1,5 +1,4 @@
 import React, { ComponentProps, useCallback } from 'react';
-import styled from 'styled-components';
 
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
@@ -22,7 +21,7 @@ const getValidDate = (initialDate: Date, ...params: OnChangeParameters): Date =>
   return initialDate;
 };
 
-const InputDateBase: React.FC<Props> = ({
+export const InputDate: React.FC<Props> = ({
   value, //
   onChange,
   format = 'yyyy-MM-dd',
@@ -48,5 +47,3 @@ const InputDateBase: React.FC<Props> = ({
     </MuiPickersUtilsProvider>
   );
 };
-
-export const InputDate = styled(InputDateBase)``;

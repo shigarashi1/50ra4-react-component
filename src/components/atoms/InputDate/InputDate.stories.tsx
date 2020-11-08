@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react';
 import parseISO from 'date-fns/parseISO';
-import { createStoryMeta, createStoryTemplate } from '../../../utils/storybook';
+import { createStoryMeta, createStoryTemplate, voidFunction } from '../../../utils/storybook';
 import { InputDate } from './InputDate';
 
 export default createStoryMeta(InputDate, { title: 'Atoms/InputDate' });
@@ -8,6 +8,7 @@ export default createStoryMeta(InputDate, { title: 'Atoms/InputDate' });
 type Props = ComponentProps<typeof InputDate>;
 const DefaultProps: Props = {
   value: parseISO('2020-11-07'),
+  onChange: voidFunction,
 };
 
 const Template = createStoryTemplate(InputDate);
