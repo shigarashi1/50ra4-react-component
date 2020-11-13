@@ -3,13 +3,18 @@ import parseISO from 'date-fns/parseISO';
 import { createStoryMeta, createStoryTemplate, voidFunction } from '../../../utils/storybook';
 import { InputDate } from './InputDate';
 
-export default createStoryMeta(InputDate, { title: 'Atoms/InputDate' });
-
 type Props = ComponentProps<typeof InputDate>;
 const DefaultProps: Props = {
   value: parseISO('2020-11-07'),
   onChange: voidFunction,
 };
+
+export default createStoryMeta(InputDate, {
+  title: 'Atoms/InputDate',
+  args: {
+    ...DefaultProps,
+  },
+});
 
 const Template = createStoryTemplate(InputDate);
 
@@ -34,4 +39,10 @@ export const Outlined = Template.bind({});
 Outlined.args = {
   ...DefaultProps,
   inputVariant: 'outlined',
+};
+
+export const Errors = Template.bind({});
+Errors.args = {
+  ...DefaultProps,
+  error: true,
 };

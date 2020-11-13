@@ -7,10 +7,13 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { __configureStore } from '../store';
 
 type StoryMetaDecorator = (storyFn: StoryFn<any>) => JSX.Element;
-type StoryMetaParameter = Omit<Meta, 'component' | 'decorators'> & { decorators?: StoryMetaDecorator[] };
+type StoryMetaParameter<T> = Omit<Meta<T>, 'component' | 'decorators'> & { decorators?: StoryMetaDecorator[] };
 
-export const createStoryMeta = <T extends React.FC<any>>(Component: T, params: StoryMetaParameter): Meta => ({
-  ...params,
+export const createStoryMeta = <T extends React.FC<any>>(
+  Component: T,
+  parameter: StoryMetaParameter<ComponentProps<typeof Component>>,
+): Meta => ({
+  ...parameter,
   component: Component,
 });
 
