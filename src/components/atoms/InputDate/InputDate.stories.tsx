@@ -1,7 +1,13 @@
 import { ComponentProps } from 'react';
 import parseISO from 'date-fns/parseISO';
-import { createStoryMeta, createStoryTemplate, voidFunction } from '../../../utils/storybook';
+
 import { InputDate } from './InputDate';
+import {
+  createStoryMeta,
+  createStoryTemplate,
+  voidFunction,
+  withDatePickerUtilsProvider,
+} from '../../../utils/storybook';
 
 type Props = ComponentProps<typeof InputDate>;
 const DefaultProps: Props = {
@@ -14,6 +20,7 @@ export default createStoryMeta(InputDate, {
   args: {
     ...DefaultProps,
   },
+  decorators: [withDatePickerUtilsProvider],
 });
 
 const Template = createStoryTemplate(InputDate);

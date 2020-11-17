@@ -1,7 +1,7 @@
 import React, { ComponentProps, useCallback } from 'react';
 
-import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
+import { KeyboardDatePicker } from '@material-ui/pickers';
+
 import isValid from 'date-fns/isValid';
 
 type BaseProps = ComponentProps<typeof KeyboardDatePicker>;
@@ -33,17 +33,15 @@ export const InputDate: React.FC<Props> = ({
     onChange,
   ]);
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <KeyboardDatePicker
-        {...props}
-        format={format}
-        KeyboardButtonProps={{
-          'aria-label': 'pickers-date-input',
-        }}
-        mask="____-__-__"
-        onChange={onChangeDate}
-        value={value}
-      />
-    </MuiPickersUtilsProvider>
+    <KeyboardDatePicker
+      {...props}
+      format={format}
+      KeyboardButtonProps={{
+        'aria-label': 'pickers-date-input',
+      }}
+      mask="____-__-__"
+      onChange={onChangeDate}
+      value={value}
+    />
   );
 };
