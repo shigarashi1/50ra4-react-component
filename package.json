@@ -13,6 +13,17 @@
     "storybook": "start-storybook -p 6006 -s public --no-dll",
     "build-storybook": "rimraf ./docs && build-storybook -s public -o docs --no-dll"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build-check && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
