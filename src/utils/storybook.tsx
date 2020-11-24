@@ -7,7 +7,7 @@ import { __configureStore } from '../store';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 
-type StoryMetaDecorator = (storyFn: StoryFn<any>) => JSX.Element;
+export type StoryMetaDecorator = (storyFn: StoryFn<any>) => JSX.Element;
 type StoryMetaParameter<T> = Omit<Meta<T>, 'component' | 'decorators'> & { decorators?: StoryMetaDecorator[] };
 
 export const createStoryMeta = <T extends React.FC<any>>(

@@ -4,12 +4,12 @@ Storybook [Check github pages](https://shigarashi1.github.io/50ra4-react-compone
 
 ### TODO
 #### atoms
-- [ ] LoadingSpiner(FIX)
+- [x] LoadingSpinner(FIX)
 
 #### molecules
 - [ ] RadioGroup
 - [ ] CheckboxGroup
-- [ ] LoadingGuard
+- [x] LoadingGuard
 
 #### organisms
 - [ ] Dialogs
