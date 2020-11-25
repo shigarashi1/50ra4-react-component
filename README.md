@@ -13,7 +13,7 @@ Storybook [Check github pages](https://shigarashi1.github.io/50ra4-react-compone
 
 #### organisms
 - [ ] Dialogs
-- [ ] EditableTable
+- [x] EditableTable
 - [ ] Header
 - [ ] Sidebar
 
