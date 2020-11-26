@@ -4,5 +4,5 @@
     "outDir": "./dist",
     "noEmit": false
   },
-  "exclude": ["./src/**/*.stories.*", "./src/utils/**/*", "./src/setupTests.ts"]
+  "exclude": ["./src/**/*.stories.*", "./src/utils/**/*", "./src/setupTests.ts", "./src/mocks/*.ts"]
 }
