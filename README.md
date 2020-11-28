@@ -9,8 +9,8 @@ Storybook [Check github pages](https://shigarashi1.github.io/50ra4-react-compone
 
 #### molecules
 - [x] RadioGroupInput
-- [ ] CheckboxGroupInput
-- [ ] CheckboxChipInput
+- [x] CheckboxGroupInput
+- [x] CheckboxChipInput
 - [x] LoadingGuard
 
 #### organisms
