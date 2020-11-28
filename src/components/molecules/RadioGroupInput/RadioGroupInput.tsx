@@ -2,7 +2,10 @@ import React, { ComponentProps, useMemo } from 'react';
 
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
 import { IndexedObject, Lookup } from '50ra4-library';
 import { I18nObj } from '../../../types';
 import { I18nText } from '../../atoms';
@@ -21,19 +24,29 @@ type OwnProps = {
   selectedId?: string;
   selectedValue?: string;
   options?: Lookup[];
-  labels?: IndexedObject<I18nObj>;
+  radioLabels?: IndexedObject<I18nObj>;
   onChange?: (id: string | undefined) => void;
   isRow?: boolean;
   rootClassName?: string;
   labelClassName?: string;
+  label?: I18nObj;
+  isRequired?: boolean;
+  isDisabled?: boolean;
+  isReadonly?: boolean;
+  hasError?: boolean;
+  helperText?: string;
 };
 type Props = OwnProps & PickedRadioProps & PickedRadioGroupProps & PickedFormControlLabelProps;
 
-const getSelectedValue = (props: Pick<OwnProps, 'selectedId' | 'selectedValue' | 'options'>): string | undefined => {
-  if (!props.selectedId) {
-    return props.selectedValue;
+const getSelectedValue = ({
+  selectedId,
+  selectedValue,
+  options = [],
+}: Pick<OwnProps, 'selectedId' | 'selectedValue' | 'options'>): string | undefined => {
+  if (!selectedId) {
+    return selectedValue;
   }
-  return props.options?.find(({ id }) => id === props.selectedId)?.value;
+  return options.find(({ id }) => id === selectedId)?.value;
 };
 
 export const RadioGroupInput: React.FC<Props> = ({
@@ -48,13 +61,18 @@ export const RadioGroupInput: React.FC<Props> = ({
   radioColor,
   isRow = true,
   options = [],
-  labels = {},
+  radioLabels = {},
+  label,
+  hasError,
+  helperText,
+  isRequired,
+  isDisabled,
+  isReadonly,
 }) => {
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
-      const currentValue = event.currentTarget.value;
-      const id = options?.find(({ value }) => value === currentValue)?.id;
-      onChange(id);
+      const currentId = event.currentTarget.id;
+      onChange(currentId);
     }
   };
   const _selectedValue = useMemo(
@@ -67,25 +85,26 @@ export const RadioGroupInput: React.FC<Props> = ({
     [selectedId, selectedValue, options],
   );
   return (
-    <RadioGroup
-      className={rootClassName}
-      name={name}
-      value={_selectedValue}
-      row={isRow}
-      aria-label={ariaLabel}
-      onChange={handleOnChange}
-    >
-      {options.map(({ id, value }) => (
-        <FormControlLabel
-          className={labelClassName}
-          key={id}
-          id={id}
-          value={value}
-          control={<Radio color={radioColor} />}
-          label={labels[id] ? <I18nText i18nObj={labels[id]} /> : value}
-          labelPlacement={labelPlacement}
-        />
-      ))}
-    </RadioGroup>
+    <FormControl className={rootClassName} component="fieldset" error={hasError} required={isRequired}>
+      {label && (
+        <FormLabel component="legend">
+          <I18nText i18nObj={label} />
+        </FormLabel>
+      )}
+      <RadioGroup name={name} value={_selectedValue} row={isRow} aria-label={ariaLabel} onChange={handleOnChange}>
+        {options.map(({ id, value }) => (
+          <FormControlLabel
+            className={labelClassName}
+            key={id}
+            id={id}
+            value={value}
+            control={<Radio id={id} color={radioColor} disabled={isDisabled || isReadonly} />}
+            label={radioLabels[id] ? <I18nText i18nObj={radioLabels[id]} /> : value}
+            labelPlacement={labelPlacement}
+          />
+        ))}
+      </RadioGroup>
+      {helperText && <FormHelperText>{helperText}</FormHelperText>}
+    </FormControl>
   );
 };

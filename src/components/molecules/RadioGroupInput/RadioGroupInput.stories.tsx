@@ -32,11 +32,27 @@ Default.args = {
 export const WithLabels = Template.bind({});
 WithLabels.args = {
   ...DefaultProps,
-  labels: FRUIT_NAME_MASTER,
+  label: { jp: 'ラベル', en: 'Label' },
+  radioLabels: FRUIT_NAME_MASTER,
 };
 
 export const Columns = Template.bind({});
 Columns.args = {
   ...DefaultProps,
   isRow: false,
+};
+
+export const Required = Template.bind({});
+Required.args = {
+  ...DefaultProps,
+  label: { jp: '必須入力項目', en: 'Required Item' },
+  isRequired: true,
+};
+
+export const Errors = Template.bind({});
+Errors.args = {
+  ...DefaultProps,
+  label: { jp: 'エラー', en: 'error' },
+  hasError: true,
+  helperText: 'this is error sample.',
 };
