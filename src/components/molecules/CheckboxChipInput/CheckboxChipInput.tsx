@@ -1,5 +1,7 @@
 import React, { ComponentProps, useCallback, useMemo } from 'react';
 
+import styled from 'styled-components';
+
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -9,7 +11,6 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import { IndexedObject, Lookup } from '50ra4-library';
 import { I18nObj } from '../../../types';
 import { I18nText } from '../../atoms';
-import styled from 'styled-components';
 
 type ChipProps = ComponentProps<typeof Chip>;
 type PickedChipProps = Pick<ChipProps, 'variant' | 'size'>;
