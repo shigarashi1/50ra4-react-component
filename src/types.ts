@@ -1,6 +1,28 @@
 import { stringArray2EnumLikeObject } from '50ra4-library';
+import { OptionsObject } from 'notistack';
 
-export const ELangCode = stringArray2EnumLikeObject(['jp', 'en']);
-export type LangCode = keyof typeof ELangCode;
-type RequiredLangCode = typeof ELangCode.jp;
-export type I18nObj = Record<RequiredLangCode, string> & Partial<Record<Exclude<LangCode, RequiredLangCode>, string>>;
+export const ELanguageCode = stringArray2EnumLikeObject(['jp', 'en']);
+export type LanguageCode = keyof typeof ELanguageCode;
+type RequiredLangCode = typeof ELanguageCode.jp;
+export type I18nObj = Record<RequiredLangCode, string> &
+  Partial<Record<Exclude<LanguageCode, RequiredLangCode>, string>>;
+
+type PickedNotifierOptionKey =
+  | 'id'
+  | 'key'
+  | 'persist'
+  | 'variant'
+  | 'preventDuplicate'
+  | 'content'
+  | 'action'
+  | 'anchorOrigin'
+  | 'autoHideDuration'
+  | 'onClose';
+type NotifierOption = Pick<OptionsObject, PickedNotifierOptionKey>;
+export type Notifier = {
+  id: string;
+  message: string;
+  hasDismissed: boolean;
+  createdAt: string;
+  option?: NotifierOption;
+};

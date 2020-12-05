@@ -24,3 +24,4 @@ Storybook [Check github pages](https://shigarashi1.github.io/50ra4-react-compone
 
 #### hooks
 - [ ] useBrowserTab
+- [x] useNotifier

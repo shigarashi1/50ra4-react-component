@@ -8,7 +8,7 @@ type Props = ComponentProps<typeof Component>;
 
 export default createStoryMeta(Component, { title: 'Atoms/I18nText' });
 const DefaultProps: Partial<Props> = {
-  langCode: 'jp',
+  languageCode: 'jp',
   i18nObj: { jp: 'サンプル', en: 'Sample' },
 };
 
@@ -27,5 +27,5 @@ Japanese.args = {
 export const English = Template.bind({});
 English.args = {
   ...DefaultProps,
-  langCode: 'en',
+  languageCode: 'en',
 };
