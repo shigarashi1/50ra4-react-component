@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
-import { useSelector, shallowEqual } from 'react-redux';
+import { withLanguageCode } from '../../../containers';
 
-import { languageCodeSelector } from '../../../store';
 import { I18nObj, LanguageCode } from '../../../types';
 
 type Props = {
@@ -19,7 +18,4 @@ export const I18nText: React.FC<Props> = ({ languageCode, i18nObj = InitialObj }
   return <>{text}</>;
 };
 
-export const I18nTextContainer: React.FC<Omit<Props, 'languageCode'>> = ({ ...props }) => {
-  const languageCode = useSelector(languageCodeSelector, shallowEqual);
-  return <I18nText {...props} languageCode={languageCode} />;
-};
+export const I18nTextContainer = withLanguageCode(I18nText);
