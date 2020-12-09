@@ -25,7 +25,7 @@ type OwnProps = {
   selectedValue?: string;
   options?: Lookup[];
   radioLabels?: IndexedObject<I18nObj>;
-  onChange?: (id: string | undefined) => void;
+  onChange?: (id: string) => void;
   isRow?: boolean;
   rootClassName?: string;
   labelClassName?: string;
