@@ -1,4 +1,4 @@
-import React, { ComponentProps, useCallback, useMemo } from 'react';
+import React, { ComponentProps, useMemo } from 'react';
 
 import styled from 'styled-components';
 
@@ -74,7 +74,7 @@ export const CheckboxChipInput: React.FC<Props> = ({
   ]);
 
   const disabled = !!isDisabled || !!isReadonly;
-  const hasChecked = useCallback((id: string) => currentSelectedIds.includes(id) ?? false, [currentSelectedIds]);
+  const hasChecked = (id: string) => currentSelectedIds.includes(id) ?? false;
 
   const handleOnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (onChange) {

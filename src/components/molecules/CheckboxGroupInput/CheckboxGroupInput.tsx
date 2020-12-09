@@ -1,4 +1,4 @@
-import React, { ComponentProps, useCallback, useMemo } from 'react';
+import React, { ComponentProps, useMemo } from 'react';
 
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -73,7 +73,7 @@ export const CheckboxGroupInput: React.FC<Props> = ({
     options,
   ]);
 
-  const hasChecked = useCallback((id: string) => currentSelectedIds.includes(id) ?? false, [currentSelectedIds]);
+  const hasChecked = (id: string) => currentSelectedIds.includes(id) ?? false;
 
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {

@@ -1,4 +1,4 @@
-import React, { ComponentProps, useCallback } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { KeyboardDatePicker } from '@material-ui/pickers';
 
@@ -28,10 +28,7 @@ export const InputDate: React.FC<Props> = ({
   initialDate = new Date(),
   ...props
 }) => {
-  const onChangeDate = useCallback((...params: OnChangeParameters) => onChange(getValidDate(initialDate, ...params)), [
-    initialDate,
-    onChange,
-  ]);
+  const onChangeDate = (...params: OnChangeParameters) => onChange(getValidDate(initialDate, ...params));
   return (
     <KeyboardDatePicker
       {...props}

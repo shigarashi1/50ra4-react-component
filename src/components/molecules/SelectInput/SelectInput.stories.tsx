@@ -1,4 +1,4 @@
-import React, { ComponentProps, useCallback, useState } from 'react';
+import React, { ComponentProps, useState } from 'react';
 import { SelectInput } from './SelectInput';
 import { createStoryMeta, createStoryTemplate, withReduxProvider } from '../../../utils/storybook';
 import { FRUIT_LOOKUPS, FRUIT_NAME_MASTER, FRUIT_ID } from '../../../mocks';
@@ -6,9 +6,9 @@ import { FRUIT_LOOKUPS, FRUIT_NAME_MASTER, FRUIT_ID } from '../../../mocks';
 type Props = ComponentProps<typeof SelectInput>;
 const Component: React.FC<Props> = (props: Props) => {
   const [selectedId, setSelectedId] = useState<string | undefined>(props.selectedId);
-  const onChange = useCallback((id: string | undefined) => {
+  const onChange = (id: string | undefined) => {
     setSelectedId(id);
-  }, []);
+  };
   return <SelectInput {...props} selectedId={selectedId} onChange={onChange} />;
 };
 

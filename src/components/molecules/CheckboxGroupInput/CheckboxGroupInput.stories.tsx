@@ -1,4 +1,4 @@
-import React, { ComponentProps, useCallback, useState } from 'react';
+import React, { ComponentProps, useState } from 'react';
 import { CheckboxGroupInput } from './CheckboxGroupInput';
 import { createStoryMeta, createStoryTemplate, withReduxProvider } from '../../../utils/storybook';
 import { FRUIT_LOOKUPS, FRUIT_NAME_MASTER } from '../../../mocks';
@@ -6,9 +6,9 @@ import { FRUIT_LOOKUPS, FRUIT_NAME_MASTER } from '../../../mocks';
 type Props = ComponentProps<typeof CheckboxGroupInput>;
 const Component: React.FC<Props> = (props: Props) => {
   const [selectedIds, setSelectedIds] = useState<string[]>(['1', '3']);
-  const onChange = useCallback((ids?: string[]) => {
+  const onChange = (ids?: string[]) => {
     setSelectedIds(ids || []);
-  }, []);
+  };
   return <CheckboxGroupInput {...props} selectedIds={selectedIds} onChange={onChange} />;
 };
 

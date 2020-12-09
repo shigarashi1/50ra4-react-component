@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { EditableTable, EditableTableProps, EditableTableColumnConfig } from './EditableTable';
 
 import { createStoryMeta, createStoryTemplate, withReduxProvider } from '../../../utils/storybook';
@@ -24,26 +24,18 @@ const COLUMN_CONFIG: EditableTableColumnConfig<FruitData> = {
 type Props = EditableTableProps<FruitData>;
 const Component: React.FC<Props> = (props: Props) => {
   const [data, setData] = useState(FRUIT_DATA);
-  const onRowAdd = useCallback(
-    (v: FruitData) => {
-      setData([...data, v]);
-    },
-    [setData, data],
-  );
-  const onRowUpdate = useCallback(
-    (v: FruitData) => {
-      const newData = data.map((d) => (d.id !== v.id ? d : v));
-      setData([...newData]);
-    },
-    [setData, data],
-  );
-  const onRowDelete = useCallback(
-    (v: FruitData) => {
-      const newData = data.filter(({ id }) => id !== v.id);
-      setData([...newData]);
-    },
-    [setData, data],
-  );
+  const onRowAdd = (v: FruitData) => {
+    setData([...data, v]);
+  };
+  const onRowUpdate = (v: FruitData) => {
+    const newData = data.map((d) => (d.id !== v.id ? d : v));
+    setData([...newData]);
+  };
+  const onRowDelete = (v: FruitData) => {
+    const newData = data.filter(({ id }) => id !== v.id);
+    setData([...newData]);
+  };
+
   return (
     <EditableTable<FruitData>
       {...props}
