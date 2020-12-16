@@ -6,7 +6,7 @@ import { ObjectType, PromiseType, toPairs, isUndefined, omit } from '50ra4-libra
 
 import { I18nText } from '../../atoms/I18nText/I18nText';
 import { I18nObj, LanguageCode } from '../../../types';
-import { languageCodeSelector } from '../../../store';
+import { languageCodeSelector } from '../../..';
 
 // Editable Action
 type MaterialTableEditableProps<T extends ObjectType> = Required<MaterialTableProps<T>>['editable'];

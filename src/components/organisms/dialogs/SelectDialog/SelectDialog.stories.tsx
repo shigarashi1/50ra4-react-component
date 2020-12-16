@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 
 import { createStoryMeta, createStoryTemplate, withDialogProvider, voidFunction } from '../../../../utils/storybook';
 import { SelectDialog as SelectDialogProps } from '../../../../types';
-import { showSelectDialog } from '../../../../store';
+import { showSelectDialog } from '../../../..';
 
 type Props = SelectDialogProps;
 const Component: React.FC<Props> = ({ children, ...rest }) => {

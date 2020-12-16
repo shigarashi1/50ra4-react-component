@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 
 import { useNotifier } from './useNotifier';
-import { createStoryMeta, createStoryTemplate, withReduxProvider, withSnackbarProvider } from '../utils/storybook';
+import { createStoryMeta, createStoryTemplate, withSnackbarProvider } from '../utils/storybook';
 import { Notifier } from '../types';
 
 type Props = Pick<Notifier, 'message' | 'option'>;
@@ -16,7 +16,7 @@ const Component: React.FC<Props> = ({ children, ...rest }) => {
 
 export default createStoryMeta(Component, {
   title: 'Hooks/useNotifier',
-  decorators: [withSnackbarProvider, withReduxProvider],
+  decorators: [withSnackbarProvider],
 });
 
 const Template = createStoryTemplate(Component);

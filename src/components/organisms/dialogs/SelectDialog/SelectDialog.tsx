@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 
 import { BaseDialog } from '../BaseDialog';
 import { SelectDialog as SelectDialogProps, WithLanguageCodeProps } from '../../../../types';
-import { closeSelectDialog, selectDialogSelector } from '../../../../store';
+import { closeSelectDialog, selectDialogSelector } from '../../../..';
 import { useLanguageCode } from '../../../../hooks/useLanguageCode';
 import { DialogContexts } from '../DialogContexts';
 

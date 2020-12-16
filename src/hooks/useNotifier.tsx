@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useSnackbar, CloseReason } from 'notistack';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import { dismissSnackbar, notifierSelector, enqueueSnackbar as enqueueSnackbarState } from '../store';
+import { dismissSnackbar, notifierSelector, enqueueSnackbar as enqueueSnackbarState } from '..';
 import { Notifier } from '../types';
 
 const toNotifierProps = (id: string, option: Notifier['option'], dismiss: (id: string) => void) => {
