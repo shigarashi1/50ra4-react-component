@@ -5,7 +5,7 @@ Storybook [Check github pages](https://shigarashi1.github.io/50ra4-react-compone
 ### TODO
 #### atoms
 - [x] LoadingSpinner
-- [ ] LanguageContainer ??
+- [x] LanguageContainer
 
 #### molecules
 - [x] RadioGroupInput
@@ -16,7 +16,7 @@ Storybook [Check github pages](https://shigarashi1.github.io/50ra4-react-compone
 - [ ] WithLabel => fix: use Box and apply xxxInput
 
 #### organisms
-- [ ] Dialogs
+- [x] Dialogs
 - [x] EditableTable
 - [ ] Header
 - [ ] Sidebar

@@ -7,6 +7,7 @@ import { __configureStore } from '../store';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { SnackbarProvider } from 'notistack';
+import { DialogProvider } from '../providers';
 
 export type StoryMetaDecorator = (storyFn: StoryFn<any>) => JSX.Element;
 type StoryMetaParameter<T> = Omit<Meta<T>, 'component' | 'decorators'> & { decorators?: StoryMetaDecorator[] };
@@ -38,5 +39,12 @@ export const withSnackbarProvider: StoryMetaDecorator = (storyFn) => {
     <SnackbarProvider maxSnack={5} preventDuplicate={false}>
       {storyFn()}
     </SnackbarProvider>
+  );
+};
+export const withDialogProvider: StoryMetaDecorator = (storyFn) => {
+  return (
+    <ReduxProvider store={store}>
+      <DialogProvider>{storyFn()}</DialogProvider>
+    </ReduxProvider>
   );
 };
