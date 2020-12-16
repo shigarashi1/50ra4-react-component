@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { with50ra4ReactComponentStateProps, $50RA4_REACT_COMPONENT_REDUCER_KEY } from '..';
+import { With$50ra4ReactComponentStateProps, $50RA4_REACT_COMPONENT_REDUCER_KEY } from '..';
 
-const stateSelector = <S extends with50ra4ReactComponentStateProps, T>(
+const stateSelector = <S extends With$50ra4ReactComponentStateProps, T>(
   selector: (state: S[typeof $50RA4_REACT_COMPONENT_REDUCER_KEY]) => T,
 ) => createSelector((state: S) => state[$50RA4_REACT_COMPONENT_REDUCER_KEY], selector);
 

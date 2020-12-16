@@ -30,10 +30,8 @@ export const voidFunction = (...args: ReadonlyArray<any>) => {};
 
 // enhance
 const enhancers = compose(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (window as any).__REDUX_DEVTOOLS_EXTENSION__
-    ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+    ? (window as any).__REDUX_DEVTOOLS_EXTENSION__()
     : (f: StoreCreator) => f,
 );
 
