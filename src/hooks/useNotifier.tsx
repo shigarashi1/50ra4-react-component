@@ -1,9 +1,10 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+
 import { useCallback, useEffect, useState } from 'react';
 import { useSnackbar, CloseReason } from 'notistack';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import Button from '@material-ui/core/Button';
-import { dismissSnackbar, enqueueSnackbar as enqueueSnackbarState } from '../events';
+import { dismissSnackbar } from '../events';
 import { notifierSelector } from '../selectors';
 import { Notifier } from '../types';
 
@@ -36,8 +37,6 @@ export const useNotifier = () => {
   const dispatch = useDispatch();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const dismiss = useCallback(dismissSnackbar(dispatch), []);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const enqueue = useCallback(enqueueSnackbarState(dispatch), []);
 
   useEffect(() => {
     notifierState.forEach(({ id, message, hasDismissed, option }) => {
@@ -60,6 +59,4 @@ export const useNotifier = () => {
     // NOTE: execute only when notifierState was updated
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [notifierState]);
-
-  return { __enqueueSnackbar: enqueue };
 };

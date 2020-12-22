@@ -1,9 +1,14 @@
-import React, { ComponentProps } from 'react';
+import React, { ComponentProps, useMemo } from 'react';
 import { SnackbarProvider } from 'notistack';
 
-import { useNotifier } from '../hooks';
+import { useNotifier } from '../hooks/useNotifier';
 
 type Props = ComponentProps<typeof SnackbarProvider>;
+
+const Notifier: React.FC = () => {
+  useNotifier();
+  return null;
+};
 
 export const NotifierProvider: React.FC<Props> = ({
   children = null,
@@ -11,10 +16,11 @@ export const NotifierProvider: React.FC<Props> = ({
   preventDuplicate = false,
   ...rest
 }) => {
-  useNotifier();
+  const notifier = useMemo(() => <Notifier />, []);
   return (
     <SnackbarProvider {...rest} maxSnack={maxSnack} preventDuplicate={preventDuplicate}>
       {children}
+      {notifier}
     </SnackbarProvider>
   );
 };

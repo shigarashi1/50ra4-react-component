@@ -5,9 +5,8 @@ import { StoryFn } from '@storybook/addons';
 import { Provider as ReduxProvider } from 'react-redux';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
-import { SnackbarProvider } from 'notistack';
 import { combineReducers, compose, createStore, StoreCreator } from '@reduxjs/toolkit';
-import { DialogProvider } from '../providers';
+import { DialogProvider, NotifierProvider } from '../providers';
 import { $50ra4ReactComponentReducers, $50RA4_REACT_COMPONENT_REDUCER_KEY } from '../store';
 
 export type StoryMetaDecorator = (storyFn: StoryFn<any>) => JSX.Element;
@@ -50,9 +49,9 @@ export const withDatePickerUtilsProvider: StoryMetaDecorator = (storyFn) => {
 export const withSnackbarProvider: StoryMetaDecorator = (storyFn) => {
   return (
     <ReduxProvider store={store}>
-      <SnackbarProvider maxSnack={5} preventDuplicate={false}>
+      <NotifierProvider maxSnack={5} preventDuplicate={false}>
         {storyFn()}
-      </SnackbarProvider>
+      </NotifierProvider>
     </ReduxProvider>
   );
 };
