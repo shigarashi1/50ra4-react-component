@@ -13,14 +13,15 @@ Storybook [Check github pages](https://shigarashi1.github.io/50ra4-react-compone
 - [x] CheckboxChipInput
 - [x] SelectInput
 - [x] LoadingGuard
-- [ ] WithLabel => fix: use Box and apply xxxInput
-
+- [ ] WithLabel
+  - [ ] inline block
 #### organisms
 - [x] Dialogs
+  - [ ] fix DialogProvider
+  - [ ] fix Stories
 - [x] EditableTable
 - [ ] Header
 - [ ] Sidebar
-- [ ] Snackbar
 
 #### hooks
 - [ ] useBrowserTab
