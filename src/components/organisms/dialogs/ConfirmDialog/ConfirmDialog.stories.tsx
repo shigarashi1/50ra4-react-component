@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 
 import { createStoryMeta, createStoryTemplate, withDialogProvider, voidFunction } from '../../../../utils/storybook';
 import { ConfirmDialog as ConfirmDialogProps } from '../../../../types';
-import { showConfirmDialog } from '../../../..';
+import { showConfirmDialog } from '../../../../events';
 
 type Props = ConfirmDialogProps;
 const Component: React.FC<Props> = ({ children, ...rest }) => {

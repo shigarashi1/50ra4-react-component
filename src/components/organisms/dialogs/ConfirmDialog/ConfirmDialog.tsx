@@ -5,7 +5,8 @@ import Button from '@material-ui/core/Button';
 
 import { BaseDialog } from '../BaseDialog';
 import { ConfirmDialog as ConfirmDialogProps, WithLanguageCodeProps } from '../../../../types';
-import { closeConfirmDialog, confirmDialogSelector } from '../../../..';
+import { closeConfirmDialog } from '../../../../events';
+import { confirmDialogSelector } from '../../../../selectors';
 import { useLanguageCode } from '../../../../hooks/useLanguageCode';
 import { DialogContexts } from '../DialogContexts';
 

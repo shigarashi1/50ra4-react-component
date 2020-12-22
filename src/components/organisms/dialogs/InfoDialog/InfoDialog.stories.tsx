@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import { createStoryMeta, createStoryTemplate, withDialogProvider } from '../../../../utils/storybook';
 import { InfoDialog as InfoDialogProps } from '../../../../types';
 import { useDispatch } from 'react-redux';
-import { showInfoDialog } from '../../../..';
+import { showInfoDialog } from '../../../../events';
 
 type Props = InfoDialogProps;
 const Component: React.FC<Props> = ({ children, ...rest }) => {

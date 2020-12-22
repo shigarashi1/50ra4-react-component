@@ -1,5 +1,5 @@
 import { ActionCreatorWithPayload, Dispatch } from '@reduxjs/toolkit';
-import { languageModule, notifierModule, infoDialogModule, confirmDialogModule, selectDialogModule } from '..';
+import { languageModule, notifierModule, infoDialogModule, confirmDialogModule, selectDialogModule } from '../store';
 
 export const actionDispatcher = <P, T extends string>(action: ActionCreatorWithPayload<P, T>) => (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -8,7 +8,7 @@ import DateFnsUtils from '@date-io/date-fns';
 import { SnackbarProvider } from 'notistack';
 import { combineReducers, compose, createStore, StoreCreator } from '@reduxjs/toolkit';
 import { DialogProvider } from '../providers';
-import { $50ra4ReactComponentReducers, $50RA4_REACT_COMPONENT_REDUCER_KEY } from '..';
+import { $50ra4ReactComponentReducers, $50RA4_REACT_COMPONENT_REDUCER_KEY } from '../store';
 
 export type StoryMetaDecorator = (storyFn: StoryFn<any>) => JSX.Element;
 type StoryMetaParameter<T> = Omit<Meta<T>, 'component' | 'decorators'> & { decorators?: StoryMetaDecorator[] };
