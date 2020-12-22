@@ -1,15 +1,22 @@
 {
   "name": "50ra4-react-component",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
+  "main": "dist/es6/index.js",
+  "module": "dist/es6/index.js",
+  "typings": "dist/es6/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "prepare": "npm run build",
     "start": "npm run storybook",
     "test": "react-scripts test",
     "test-ci": "cross-env CI=true react-scripts test",
     "clean": "rimraf ./dist",
     "build-check": "tsc --noEmit",
-    "build-module": "tsc -p ./tsconfig.build.json",
-    "build": "npm run clean && npm run build-module",
+    "build-es6": "tsc -p ./tsconfig.build-es6.json",
+    "build": "npm run clean && npm run build-es6",
     "storybook": "start-storybook -p 6006 -s public --no-dll",
     "build-storybook": "rimraf ./docs && build-storybook -s public -o docs --no-dll"
   },
